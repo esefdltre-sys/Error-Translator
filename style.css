@@ -1,0 +1,639 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* =====================================================
+   GLOBAL RESET
+===================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  padding: 30px;
+  color: #f8fafc;
+  background: radial-gradient(circle at top left, #1e293b, #0f172a 55%, #020617);
+  overflow-x: hidden;
+}
+
+/* =====================================================
+   BACKGROUND ANIMATION
+===================================================== */
+body::before {
+  content: "";
+  position: fixed;
+  top: -100px;
+  left: -100px;
+  width: 450px;
+  height: 450px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.45), transparent 70%);
+  filter: blur(50px);
+  z-index: -1;
+  animation: floatGlow 7s infinite alternate ease-in-out;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  bottom: -140px;
+  right: -140px;
+  width: 550px;
+  height: 550px;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.35), transparent 70%);
+  filter: blur(70px);
+  z-index: -1;
+  animation: floatGlow2 9s infinite alternate ease-in-out;
+}
+
+@keyframes floatGlow {
+  from {
+    transform: translate(0px, 0px) scale(1);
+  }
+  to {
+    transform: translate(50px, 35px) scale(1.1);
+  }
+}
+
+@keyframes floatGlow2 {
+  from {
+    transform: translate(0px, 0px) scale(1);
+  }
+  to {
+    transform: translate(-60px, -30px) scale(1.15);
+  }
+}
+
+/* =====================================================
+   APP CONTAINER
+===================================================== */
+.app {
+  max-width: 1250px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+/* =====================================================
+   HEADER SECTION
+===================================================== */
+.header {
+  padding: 28px 28px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.08),
+    rgba(255, 255, 255, 0.03)
+  );
+  backdrop-filter: blur(18px);
+  box-shadow: 0px 18px 55px rgba(0, 0, 0, 0.45);
+  position: relative;
+  overflow: hidden;
+}
+
+.header::before {
+  content: "";
+  position: absolute;
+  top: -80px;
+  right: -80px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(59, 130, 246, 0.55), transparent 70%);
+  filter: blur(60px);
+  opacity: 0.8;
+}
+
+.header h1 {
+  font-size: 2.3rem;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+  background: linear-gradient(90deg, #3b82f6, #22c55e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header p {
+  margin-top: 10px;
+  font-size: 1rem;
+  opacity: 0.85;
+  line-height: 1.5;
+  max-width: 750px;
+}
+
+/* =====================================================
+   GRID LAYOUT
+===================================================== */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+}
+
+/* =====================================================
+   CARD BASE STYLE
+===================================================== */
+.card {
+  padding: 24px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.07),
+    rgba(255, 255, 255, 0.03)
+  );
+  backdrop-filter: blur(16px);
+  box-shadow: 0px 16px 50px rgba(0, 0, 0, 0.5);
+  transition: 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top right, rgba(59, 130, 246, 0.12), transparent 70%);
+  opacity: 0;
+  transition: 0.3s ease;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.card h2 {
+  font-size: 1.25rem;
+  font-weight: 750;
+  margin-bottom: 14px;
+  letter-spacing: 0.3px;
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* =====================================================
+   TEXTAREA + INPUT STYLES
+===================================================== */
+textarea {
+  width: 100%;
+  min-height: 150px;
+  border-radius: 18px;
+  padding: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  outline: none;
+  background: rgba(2, 6, 23, 0.75);
+  color: #f8fafc;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  resize: none;
+  transition: 0.2s ease;
+}
+
+textarea:focus {
+  border: 1px solid rgba(59, 130, 246, 0.6);
+  box-shadow: 0px 0px 0px 5px rgba(59, 130, 246, 0.15);
+}
+
+textarea::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+input {
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: rgba(2, 6, 23, 0.75);
+  color: white;
+  padding: 11px 14px;
+  outline: none;
+  font-size: 0.95rem;
+  transition: 0.2s ease;
+}
+
+input:focus {
+  border: 1px solid rgba(34, 197, 94, 0.6);
+  box-shadow: 0px 0px 0px 5px rgba(34, 197, 94, 0.15);
+}
+
+input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+/* =====================================================
+   BUTTON SYSTEM
+===================================================== */
+.button-row {
+  margin-top: 14px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  padding: 12px 18px;
+  border-radius: 16px;
+  border: none;
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 0.95rem;
+  letter-spacing: 0.2px;
+  transition: 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn:active {
+  transform: scale(0.96);
+}
+
+/* Primary Button */
+.btn.primary {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: white;
+  box-shadow: 0px 10px 25px rgba(59, 130, 246, 0.25);
+}
+
+.btn.primary::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 200%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transition: 0.4s ease;
+}
+
+.btn.primary:hover::before {
+  left: 100%;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 15px 35px rgba(59, 130, 246, 0.4);
+}
+
+/* Secondary Button */
+.btn.secondary {
+  background: rgba(255, 255, 255, 0.12);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.btn.secondary:hover {
+  background: rgba(255, 255, 255, 0.18);
+  transform: translateY(-2px);
+}
+
+/* Danger Button */
+.btn.danger {
+  background: linear-gradient(135deg, #ef4444, #b91c1c);
+  color: white;
+  box-shadow: 0px 10px 25px rgba(239, 68, 68, 0.25);
+}
+
+.btn.danger:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 15px 35px rgba(239, 68, 68, 0.35);
+}
+
+/* Small Button */
+.btn.small {
+  padding: 9px 14px;
+  font-size: 0.85rem;
+  border-radius: 14px;
+}
+
+/* =====================================================
+   OUTPUT BOX
+===================================================== */
+.output-box {
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.05);
+  transition: 0.2s ease;
+}
+
+.output-box:hover {
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.output-box p {
+  font-size: 0.95rem;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* =====================================================
+   CHECKLIST TOP HEADER
+===================================================== */
+.top-checklist {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.top-checklist h2 {
+  margin-bottom: 0;
+}
+
+.top-checklist input {
+  flex: 1;
+}
+
+/* =====================================================
+   PROGRESS BAR
+===================================================== */
+.progress-box {
+  margin-top: 18px;
+  padding: 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.25);
+  box-shadow: inset 0px 0px 0px 1px rgba(255, 255, 255, 0.05);
+}
+
+.progress-label {
+  display: flex;
+  justify-content: space-between;
+  font-weight: 700;
+  font-size: 0.95rem;
+  opacity: 0.95;
+  margin-bottom: 10px;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  width: 0%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+  box-shadow: 0px 0px 18px rgba(34, 197, 94, 0.45);
+  transition: 0.35s ease;
+}
+
+/* =====================================================
+   CHECKLIST LIST
+===================================================== */
+.checklist {
+  margin-top: 16px;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 340px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+/* Custom Scrollbar */
+.checklist::-webkit-scrollbar {
+  width: 8px;
+}
+
+.checklist::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+}
+
+.checklist::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.checklist li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.25);
+  transition: 0.2s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.checklist li::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(59, 130, 246, 0.15), transparent);
+  opacity: 0;
+  transition: 0.25s ease;
+}
+
+.checklist li:hover::before {
+  opacity: 1;
+}
+
+.checklist li:hover {
+  transform: scale(1.01);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.checklist input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  accent-color: #22c55e;
+}
+
+.checklist .text {
+  flex: 1;
+  font-size: 0.95rem;
+  font-weight: 550;
+  opacity: 0.92;
+  line-height: 1.5;
+}
+
+.checklist .delete {
+  cursor: pointer;
+  font-weight: 900;
+  color: rgba(239, 68, 68, 0.9);
+  font-size: 1.1rem;
+  transition: 0.2s ease;
+}
+
+.checklist .delete:hover {
+  color: rgba(239, 68, 68, 1);
+  transform: scale(1.1);
+}
+
+/* =====================================================
+   HISTORY SECTION
+===================================================== */
+.history-card {
+  padding: 24px;
+}
+
+.history-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.history-list {
+  margin-top: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 250px;
+  overflow-y: auto;
+  padding-right: 6px;
+}
+
+.history-list::-webkit-scrollbar {
+  width: 8px;
+}
+
+.history-list::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.16);
+  border-radius: 20px;
+}
+
+.history-list::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.history-item {
+  padding: 15px;
+  border-radius: 18px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  transition: 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.history-item::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(34, 197, 94, 0.18), transparent);
+  opacity: 0;
+  transition: 0.25s ease;
+}
+
+.history-item:hover::before {
+  opacity: 1;
+}
+
+.history-item:hover {
+  transform: translateY(-3px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.history-item strong {
+  display: block;
+  font-size: 0.98rem;
+  font-weight: 800;
+  margin-bottom: 6px;
+  opacity: 0.95;
+}
+
+.history-item span {
+  display: block;
+  font-size: 0.92rem;
+  opacity: 0.8;
+  line-height: 1.5;
+}
+
+/* =====================================================
+   FOOTER
+===================================================== */
+.footer {
+  text-align: center;
+  opacity: 0.65;
+  font-size: 0.9rem;
+  padding: 10px;
+}
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+@media (max-width: 1050px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+
+  body {
+    padding: 18px;
+  }
+
+  .header h1 {
+    font-size: 1.9rem;
+  }
+
+  .header p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 520px) {
+  .header {
+    padding: 22px;
+  }
+
+  .card {
+    padding: 20px;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+
+  textarea {
+    min-height: 130px;
+  }
+
+  .top-checklist {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+/* =====================================================
+   SMALL EXTRA DETAILS (PRO FEEL)
+===================================================== */
+::selection {
+  background: rgba(59, 130, 246, 0.5);
+  color: white;
+}
+
+a {
+  color: #60a5fa;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}

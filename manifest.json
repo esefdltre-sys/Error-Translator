@@ -1,0 +1,8 @@
+{
+  "name": "Programming Assistant",
+  "short_name": "Program.exe",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#0e0f13",
+  "theme_color": "#5b8cff"
+}

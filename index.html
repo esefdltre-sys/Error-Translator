@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Error Translator + Debug Checklist</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <div class="app">
+      <!-- HEADER -->
+      <header class="header">
+        <h1>Error Translator</h1>
+        <p>P.B.- Eosef DelaTorre</p>
+      </header>
+
+      <!-- MAIN GRID -->
+      <div class="grid">
+        <!-- LEFT PANEL -->
+        <section class="card">
+          <h2>Paste Your Error</h2>
+          <textarea
+            id="errorInput"
+            placeholder="Example: Uncaught TypeError: Cannot read properties of null..."
+          ></textarea>
+
+          <div class="button-row">
+            <button id="translateBtn" class="btn primary">
+              Translate Error
+            </button>
+            <button id="clearBtn" class="btn danger">Clear</button>
+          </div>
+
+          <div class="output-box">
+            <h3>Translated Meaning</h3>
+            <p id="translatedOutput">
+              Your translated error will appear here...
+            </p>
+          </div>
+
+          <div class="output-box">
+            <h3>Possible Fix</h3>
+            <p id="fixOutput">Suggested fix will appear here...</p>
+          </div>
+        </section>
+
+        <!-- RIGHT PANEL -->
+        <section class="card">
+          <div class="top-checklist">
+            <h2>Debug Checklist</h2>
+            <input
+              type="text"
+              id="searchChecklist"
+              placeholder="Search checklist..."
+            />
+          </div>
+
+          <div class="progress-box">
+            <div class="progress-label">
+              <span>Progress</span>
+              <span id="progressText">0%</span>
+            </div>
+            <div class="progress-bar">
+              <div class="progress-fill" id="progressFill"></div>
+            </div>
+          </div>
+
+          <ul id="checklistContainer" class="checklist"></ul>
+
+          <div class="button-row">
+            <button id="resetChecklistBtn" class="btn secondary">
+              Reset Checklist
+            </button>
+            <button id="addChecklistBtn" class="btn primary">
+              Add Custom Item
+            </button>
+          </div>
+        </section>
+      </div>
+
+      <!-- ERROR HISTORY -->
+      <section class="card history-card">
+        <div class="history-header">
+          <h2>Error History</h2>
+          <button id="clearHistoryBtn" class="btn danger small">
+            Clear History
+          </button>
+        </div>
+        <div id="historyContainer" class="history-list"></div>
+      </section>
+
+      <!-- FOOTER -->
+      <footer class="footer">
+        <p>Just a Prototype :D</p>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
